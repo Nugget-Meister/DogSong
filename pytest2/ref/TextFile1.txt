@@ -1,0 +1,126 @@
+bgm\wave\Bridge				victory_BBI_B		ready_short	
+bgm\wave\CameraBGM			bite				n	
+bgm\wave\Casadhis_END		sad_cutscene_end	ready	
+bgm\wave\D-N				bite				n	
+bgm\wave\Danger_4			combat_shadowkeep	ready			shadow keep
+bgm\wave\DD_Chuusou			ambience_BBI_B	ready	bitterblack safe
+bgm\wave\DD_Entrance		ambience_BBI_A	ready	bitterblack safe
+bgm\wave\DD_Jousou	ambience_BBI_C	ready	bitterblack safe
+bgm\wave\DD_Kasou	ambience_BBI_D	ready	bitterblack safe
+bgm\wave\demo_gob_voice	voice	n	
+bgm\wave\Demon_1	combat_bossOmega_DaimonB	ready	Daimon form 2
+bgm\wave\Epitaph	voice	n	
+bgm\wave\Epitaph_jp <-- Missing file!	voice	n	
+bgm\wave\ept_04_ash_53939_e	voice	n	
+bgm\wave\ept_04_ash_53939_jp <-- Missing file!	voice	n	
+bgm\wave\ept_05_ash_53940_e	voice	n	
+bgm\wave\ept_05_ash_53940_jp <-- Missing file!	voice	n	
+bgm\wave\ept_06_dmn_53941_e	voice	n	
+bgm\wave\ept_06_dmn_53941_jp <-- Missing file!	voice	n	
+bgm\wave\ept_17_olr_58511_e	voice	n	
+bgm\wave\ept_17_olr_58511_jp <-- Missing file!	voice	n	
+bgm\wave\ept_18_ash_58512_e	voice	n	
+bgm\wave\ept_18_ash_58512_jp <-- Missing file!	voice	n	
+bgm\wave\ept_19_grt_58513_e	voice	n	
+bgm\wave\ept_19_grt_58513_jp <-- Missing file!	voice	n	
+bgm\wave\ev_anger_1A	cutscene_combat1	ready	the dragon attacks
+bgm\wave\ev_anger_1B	cutscene_combat2	ready	
+bgm\wave\ev_anger_2A	cutscene_defeat	ready	
+bgm\wave\ev_anger_2B	cutscene_combat3	ready	
+bgm\wave\ev_anger_3	cutscene_angry	ready	
+bgm\wave\ev_horror_1	cutscene_scary	ready	
+bgm\wave\ev_horror_2	cutscene_scary	ready	
+bgm\wave\ev_pleasure_1	cutscene_bestow	ready	
+bgm\wave\ev_pleasure_2	cutscene_bestow	ready	
+bgm\wave\ev_relax_1	cutscene_safe	ready	
+bgm\wave\ev_relax_2	cutscene_safe	ready	
+bgm\wave\ev_relax_2Loop	cutscene_safe	ready	
+bgm\wave\ev_sadness_1	cutscene_death	ready	
+bgm\wave\ev_sadness_2	cutscene_death	ready	
+bgm\wave\fsm_wolf_howl	voice	n	
+bgm\wave\gamestart	bite	n	
+bgm\wave\Gazer	combat_boss_Gazer	ready	Gazer Fight
+bgm\wave\golem_death	bite	n	
+bgm\wave\id66	bite	n	
+bgm\wave\Kaiou_Life_master	main_menu_song	ready	Main menu theme
+bgm\wave\Lich_DragonZonbi	combat_boss_Lich	ready	Lich Boss Fight
+bgm\wave\MainTheme	combat_bossOmega_DaimonA	ready	Daimon Form 1 Fight
+bgm\wave\N-D	bite	n	
+bgm\wave\No_001	combat_scene_UrDragon	ready	Ur Dragon Theme
+bgm\wave\No_002	combat_bossOmega_Grigori_3	ready	Grigori fight
+bgm\wave\No_003	combat_bossOmega_Seneschal	ready	Seneschal Fight
+bgm\wave\No_004	combat_boss_A_Hydra	ready	Hydra fight first time
+bgm\wave\No_004B	combat_boss_B_Hydra	ready	Hydra fight
+bgm\wave\No_005	combat_boss_A_Griffin	ready	gryphon fight
+bgm\wave\No_005B	combat_boss_B_Griffin	ready	gryphon fight
+bgm\wave\No_006	combat_flee_Everfall	ready	the everfall running
+bgm\wave\No_007	combat_boss_A_Golem	ready	Golem Fight
+bgm\wave\No_007B	combat_boss_B_Golem	ready	Golem Fight
+bgm\wave\No_008	combat_boss_A_Chimera	ready	Chimera Fight
+bgm\wave\No_008B	combat_boss_B_Chimera	ready	Chimera Fight
+bgm\wave\No_009	combat_bossCutscene_Ogre	ready	fighting ogre
+bgm\wave\No_010	combat_bossCutscene_Wight	ready	Salomet/Wight Fight
+bgm\wave\No_011	combat_dragon	ready	dragon
+bgm\wave\No_012	combat_generic_A	ready	Gransys Combat
+bgm\wave\No_013	combat_generic_B	ready	Gransys Combat
+bgm\wave\No_014	combat_generic_C	ready	Gransys Combat
+bgm\wave\No_015	victory_Gransys_A	ready_short	
+bgm\wave\No_016	victory_Gransys_B	ready_short	
+bgm\wave\No_017	ambience_field_Day	ready	gransys explore day
+bgm\wave\No_017B	ambience_field_Night	ready	gransys explore night
+bgm\wave\No_018	ambience_city_Cassardis	ready	cassardis ambience
+bgm\wave\No_019	ambience_city_Fort	ready	fort ambience
+bgm\wave\No_020	ambience_city_GranSoren	ready	gran soren ambience
+bgm\wave\No_021	ambience_scary	ready	
+bgm\wave\No_022	ambience_church	ready	gran soren church
+bgm\wave\No_023	ambience_creepyMagical	ready	
+bgm\wave\No_024	ambience_witch	ready	
+bgm\wave\No_025	ambience_tribal	ready	
+bgm\wave\No_026	ambience_explore_magical	ready	
+bgm\wave\No_027	ambience_explore	ready	
+bgm\wave\No_028	ambience_sandy	ready	
+bgm\wave\No_029	ambience_sandy	ready	
+bgm\wave\No_030	ambience_stealth	ready	
+bgm\wave\No_031	cutscene_godApproach	ready	
+bgm\wave\No_032	ambience_wistful	ready	
+bgm\wave\No_034	ambience_wistful_night	ready	
+bgm\wave\No_035	ambience_explore_sandy_night	ready	
+bgm\wave\No_036	ambience_explore_sandy_night_tension	ready	
+bgm\wave\No_037	ambience_transport	ready	transporting the hydra head
+bgm\wave\No_038	ambience_dark_tension	ready	
+bgm\wave\No_039	ambience_stealth	ready	
+bgm\wave\No_039_Loop	ambience_stealth_loop	ready	
+bgm\wave\No_040	cutscene_sad	ready	
+bgm\wave\No_041	fake_win	n	faking the win
+bgm\wave\No_045	main_title_song	ready	
+bgm\wave\No_046	character_creation	ready	character customization
+bgm\wave\No_049	death_scene	ready_short	when you die
+bgm\wave\No_050	combat_boss_Uprising	ready	
+bgm\wave\No_051	victory_struggle	ready_short	
+bgm\wave\No_054	combat_flee_GranSoren	ready	gransoren running
+bgm\wave\No_055	combat_bossOmega_Grigori_1	ready	
+bgm\wave\No_055_Intro	combat_bossOmega_Grigori_1_Intro	ready	
+bgm\wave\No_056	combat_bossOmega_Grigori_2	ready	Grigori fight part 1
+bgm\wave\No_064	ambience_city	ready	
+bgm\wave\Outro	victory_BBI	ready_short	
+bgm\wave\Q_1shot	cutscene_creepy	ready	
+bgm\wave\Q_Hagure	cutscene_witch	ready	
+bgm\wave\Q_Huon	ambience_forest	ready	
+bgm\wave\Q_Puzzle	ambience_combat_elysion	ready	Elysion Meeting
+bgm\wave\Q_Shikaku	combat_bossCutscene_Assassin	ready	assassins'
+bgm\wave\Q_Shikaku_11	combat_bossCutscene_Assassin_B	ready	assassins underleveled
+bgm\wave\Q_Toride	ambience_area_people	ready	
+bgm\wave\Q_Toride_Bad	ambience_area_people	ready	
+bgm\wave\rebirth	bite	n	
+bgm\wave\Rim_Room	ambience_area_pawn	ready	possibly pawn server?
+bgm\wave\Shinigami_Battle	combat_bossMega_Death	ready	Death fight
+bgm\wave\Shinigami_IN	combat_bossMega_DeathSetup	ready	Death
+bgm\wave\Shitaiwaki	combat_bossMega_Carrion	ready	carrion fight
+bgm\wave\ShuuzinCycrops	combat_bossMega_GoreCyclops	ready	GoreCyclops fight
+bgm\wave\st200_event_camera_wind	bite	n	
+bgm\wave\UnBattleArea	ambience_area_safe_bbi	ready	Place with holy water
+bgm\wave\Upper_ZakoDragon	combat_dragonHard	ready	Angrier/Underlevel for wyvern
+bgm\wave\Zako_1	combat_BBI_A	ready	overlevel
+bgm\wave\Zako_2	combat_BBI_B	ready	normal
+bgm\wave\Zako_3	combat_BBI_C	ready	underlevel
+Filename	Label	length	details
