@@ -26,6 +26,9 @@ selectIndex = [None] * 10
 #Initialize array of held songs
 testSong = [None] * 10
 
+#Add container for active window
+activeWindow = None
+
 
 def select_file(index, section):
     filetypes = ( ('MP3 Files', '*.mp3'),('All files', '*.*') )
@@ -135,14 +138,14 @@ class window_Main:
         self.text_Desc.grid(row=1, column=2)
 
 
-def initializeSelectorWindow(count):
+def openSelectorWindow(count):
     i=0
     while (i<=count-1):
         selectIndex[i] = component_songSelector(frame, i) 
         i = i+1
 
 def openMainWindow():
-    nugget = window_Main(frame)
+    activeWindow = window_Main(frame)
 
 
 def fileNotSelected():
