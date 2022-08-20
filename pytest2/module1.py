@@ -9,26 +9,23 @@ from tkinter import filedialog as fd
 from tkinter import messagebox
 
 from tkinter.messagebox import showinfo
+from typing import Counter, Text
 
 import module2 as debug
 
 
-
-#initialize filename
-filename = "none"
-
 #Set width for widgets that require it
 widgetWidth = 30
 
-#Initialize array for selectors
-selectIndex = [None] * 10
+#Initialize array for the Selecting container
+selectIndex = [None]
+indexSize = 5
 
-#Initialize array of held songs
+#Initialize array container to hold songs 
 testSong = [None] * 10
 
-#Add container for active window
+#Initialize empty container for windows
 activeWindow = None
-
 
 def select_file(index, section):
     filetypes = ( ('MP3 Files', '*.mp3'),('All files', '*.*') )
@@ -96,6 +93,14 @@ def openSongDetails(song):
     text_songLength.grid(row=4, column=1)
     text_songSamples.grid(row=5, column=1)
 
+class window_songSelector:
+
+    def __init__(self,frame):
+       populateSelector(indexSize, selectIndex)
+
+       self.button_Return = ttk.Button(frame, width=10, text='< back' ,command=lambda:openMainWindow())
+
+       self.button_Return.grid(row = indexSize, column = 0)
 
 class component_songSelector:
 
@@ -107,13 +112,12 @@ class component_songSelector:
         #open button   
 
 
-        self.button_openFile = ttk.Button(frame,text='...', width=3, command= lambda: select_file(count, self))
-
-
+        
         self.label_songName        = tk.Label(frame, text = "Selected song")
         self.text_songNameChosen  = tk.Label(frame, width = widgetWidth, anchor='w', text = "")
 
         # Using a lambda to prevent the function from being called prematurely
+        self.button_openFile = ttk.Button(frame,text='...', width=3, command= lambda: select_file(count, self))
         self.button_openWindow = ttk.Button(frame,text='?', width=3, command= lambda: openSongDetails(testSong[count])) 
 
 
@@ -125,28 +129,50 @@ class component_songSelector:
         self.button_openFile.grid(row=count, column=2)
         self.button_openWindow.grid(row=count,column=3)
 
+def populateSelector(count, container):
+
+  index = 0
+  container = [None] * count
+  while (index<=count-1):  
+        container[index] = component_songSelector(frame, index)
+        if testSong[index] != None:
+            container[index].text_songNameChosen.config(text=testSong[index].inputFile)
+        index = index+1
+  print(container)
+  return container
+
 class window_Main:
 
     def __init__(self, frame):
+            # Initialize 
+            self.text_Title = tk.Label(frame, width=10, anchor='w', text = 'DDMOD')
+            self.text_Desc = tk.Label(frame, width=10, anchor='w', text = "Put the music in the game.", justify='center')
+            self.button_openSelectorWindow = tk.Button(frame, text='Open DDMOD', command=lambda:openSelectorWindow())
 
-        # Initialize 
-        self.text_Title = tk.Label(frame, width=10, anchor='w', text = 'DDMOD')
-        self.text_Desc = tk.Label(frame, width=10, anchor='w', text = "Put the music in the game.")
-
-        # Widget Placement
-        self.text_Title.grid(row=0, column=2)
-        self.text_Desc.grid(row=1, column=2)
+            # Widget Placement
+            self.text_Title.grid(row=0, column=2)
+            self.text_Desc.grid(row=1, column=2)
+            self.button_openSelectorWindow.grid(row=3, column=2)
+            self.button_openSelectorWindow.grid(row=3, column=2)
 
 
-def openSelectorWindow(count):
-    i=0
-    while (i<=count-1):
-        selectIndex[i] = component_songSelector(frame, i) 
-        i = i+1
+
+def openSelectorWindow():  
+    clearWindow()
+    activeWindow = window_songSelector(frame)
+    #activeWindow = populateSelector(5)
 
 def openMainWindow():
+    clearWindow()
     activeWindow = window_Main(frame)
 
+
+
+#Subcommands
+def clearWindow():
+
+    for widget in frame.winfo_children():
+        widget.destroy()    
 
 def fileNotSelected():
     tk.messagebox.showinfo("", 'No File Selected')
@@ -166,9 +192,9 @@ frame = tk.Frame(root)          # assign our base frame to the tkinter thing
 #Frames
 frame.grid(row=0,column=0)
 
-#Initialize and fill the window with the song selector objects
 
-#initializeSelectorWindow(5)
+
+#Open main window
 openMainWindow()
 
 # run the application
