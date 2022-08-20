@@ -96,7 +96,7 @@ def openSongDetails(song):
 class window_songSelector:
 
     def __init__(self,frame):
-       populateSelector(indexSize, selectIndex)
+       populateSelector(indexSize, selectIndex, testSong)
 
        self.button_Return = ttk.Button(frame, width=10, text='< back' ,command=lambda:openMainWindow())
 
@@ -129,15 +129,18 @@ class component_songSelector:
         self.button_openFile.grid(row=count, column=2)
         self.button_openWindow.grid(row=count,column=3)
 
-def populateSelector(count, container):
+def populateSelector(count, container, testSong):
 
   index = 0
   container = [None] * count
   while (index<=count-1):  
         container[index] = component_songSelector(frame, index)
+        
         if testSong[index] != None:
             container[index].text_songNameChosen.config(text=testSong[index].inputFile)
+        
         index = index+1
+
   print(container)
   return container
 
