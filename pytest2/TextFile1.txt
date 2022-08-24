@@ -8,6 +8,7 @@ YES		Convert Song from filetype to OGG Constant Bit Rate
 YES		Get length of CBR OGG in samples
 
 
+
 uh      convert samples to hex
 		convert hex backwards
-		hex e
+		hex editor
