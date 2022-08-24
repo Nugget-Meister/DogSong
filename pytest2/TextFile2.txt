@@ -1,0 +1,340 @@
+﻿Do you wanna change your Dragon's Dogma background music? Follow along, step by step and you'll do it, believe me.
+
+
+Image: Music Replacer Tutorial https://i.imgur.com/PLwjtGN.jpg
+
+Music Replacer Tutorial - Direct GoogleDrive download link: https://drive.google.com/file/d/1BuTy4FNNtIEL6Ir0YnKNVddf9fXObsaP/
+
+ABOUT
+
+
+This tutorial will show you how to replace a default game's background music for a music of your choice.
+
+Note: This was my 1st time messing with a Hex editor and I only know the basics of audio editing. So, after hours struggling to finally accomplish my task, I decided to make this tutorial with some images, to make things easier to comprehend. I only found one guide (by Infernus Animositas, credited below) about changing Dragon's Dogma music files. It was not easy for me to follow, because it was the first time I ever tried something like this, I'm not familiar with these things, but I made it and I felt like sharing the details with the community.
+
+
+
+IMPORTANT!: Always backup your original files before modding.
+
+
+
+REQUIREMENTS (recommended applications)
+
+
+ARC file converter (ARCTool)
+Hex editor (Hex Workshop)
+Audio editor (Audacity)
+A Calculator with a Programmer function to convert Decimal (DEC) and Hexadecimal (HEX) numbers (Windows Calculator will do)
+
+
+
+OVERVIEW
+
+
+You will be converting and adjusting your song file, editing  (through a Hex editor) the game's .stq file responsible for reading the audio files, then repacking with the ARCTool.
+
+
+
+INSTRUCTIONS
+
+
+In this tutorial, we'll replace the Character Editor background music. The sound file for this music is "No_046.sngw"
+
+
+
+PART I - Downloading, installing and organizing the applications and tools
+
+
+Download and install Audacity: https://github.com/audacity/audacity/releases/download/Audacity-3.0.3/audacity-win-3.0.3-64bit.exe
+Download and install Hex Workshop: http://www.bpsoft.com/bbl/download/download.html?dlfile=hw_v673.exe
+Download ARCTool: http://www.fluffyquack.com/tools/ARCtool.rar
+Download ARCTool's batch files: http://www.fluffyquack.com/tools/ARCtool-PC-batch.rar
+
+Note: If the download links are not working, or outdated, go to the respective websites (as shown in the "Credits and Thanks" section below) and find the updated download links, or search for them online, or use other applications that do the same job.
+
+(1) Extract the "ARCtool.rar" file into a new folder which we'll call "ARCTool"
+
+1.1 - The "ARCtool.rar" file has the "ARCtool.exe" file within it. Ectract this .exe file into the "ARCTool" folder we created.
+
+1.2 - Within the "ARCtool-PC-batch.rar" file, there's a file called "pc-dd.bat", extract this file into the "ARCTool" folder
+
+Image - Extract ARCTool https://i.imgur.com/Gaq6kN3.jpg
+
+After you've downloaded, installed and extracted the required applications, follow the instructions below
+
+
+
+PART II - Preparing your music file
+
+
+(1)    Find the game's file related to the music/audio you want to change and make a backup of it
+
+    1.1 - Navigate to your game installation folder (where the Dragon's Dogma Dark Arisen "DDDA.exe" file is located)
+    1.2 - Go to \nativePC\sound\stream\bgm\wave
+    1.3 - In this "\wave" folder you'll see a lot of .sgnw audio files which you can play with any .ogg compatible player (like Audacity or VLC Media Player) and listen to what they correspond to in-game
+    1.4 - Search for "No_046.sngw" and make a backup copy of it (No_046.sngw is the Character Editor background music)
+
+
+Image - Backup copy of No_046.sngw https://i.imgur.com/19IIC4a.jpg
+
+Note: Dragon's Dogma sound files are in the .sgnw format which is nothing but a Vorbis .ogg format. This means you can open these .sgnw audio files with a media player that supports playing .ogg files, for example with Audacity or VLC Media Player.
+This way you can listen to the game's musics and sounds and choose which ones to change.
+
+Image - Playing DDDA .sgnw audio https://i.imgur.com/FT8OVHp.jpg
+
+
+(2)    Open the "No_046.sngw" audio file in Audacity, we'll use it as a template for your music.
+
+    2.1 - The file "No_046.sngw" has 6 Mono channels, is 48000Hz and 32bit. If your music file has this same setup, then just convert it to .ogg. If not, then follow along
+
+    2.2 - Click on the "X" for each Mono channel and close them all
+
+
+Image - Close the Mono channels https://i.imgur.com/jeUHgn8.jpg
+
+    2.3 -     Assuming your music file (the music file, usually .mp3, you chose to replace the default music) is Stereo (which is the most common setup), in Audacity, do the following:
+            Click on the "Tracks" menu, then "Add New" > "Stereo Track". If it's not Stereo, add a new track accordingly
+
+
+Image - Add a new Stereo track https://i.imgur.com/QtNtBQX.jpg
+
+    2.4 - Open your music in a new Audacity window. In this tutorial, we'll use the song "Into the Wormhole" by "Jingle Punks", but you can use any music file compatible with Audacity.
+    
+Note: I've chosen this music just because it's copyright-free, it's just 1 minute long, so it'll loop fast to check if it's working and it sounds cool too.
+
+    2.5 - Press "Ctrl + A" to select the whole song, then press "Ctrl + C" to copy it
+
+    2.6 - Go to the "No_046.sngw" window (with the blank Stereo track) in Audacity and press "Ctrl + V" to paste your song
+
+Image - Copy your song to the Stereo track in the "No_046.sngw" file https://i.imgur.com/D0Y0MjQ.jpeg
+
+    2.7 - You can close your music window in Audacity now. At the "No_046.sngw" window in Audacity, click on "File" > "Export" > "Export as OGG"
+
+    2.8 - Drag the "Quality" slider to 10 and click on "Save"
+
+
+Image - Export as OGG and Save https://i.imgur.com/xmzcjaQ.jpg
+
+So, we grabbed the music "Jingle Punks - Into the Wormhole", moved it into Audacity in the "No_046.sngw" music file, then we adjusted and converted it to OGG and named it "No_046.ogg".
+
+Your music file is done. We'll need some info about this file to use on the Hex Editor later
+
+
+
+PART III - Unpack the "bbs_rpg.arc" file with ARCTool
+
+
+(1) Go to your game installation folder \nativePC\rom
+
+    1.1 - Backup the "bbs_rpg.arc" file and copy it into the "ARCTool" folder
+
+Image - Backup and copy "bbs_rpg.arc" https://i.imgur.com/OAinvC6.jpg
+
+    1.2 - On the File Explorer window, where your "ARCTool" folder is open, select the address bar then type "cmd" and press Enter to open the Command Prompt window at this exact location
+
+
+Image - Command Prompt https://i.imgur.com/xShPC2N.jpg
+
+    1.3 - On the Command Prompt window, type "pc-dd bbs_rpg.arc" (without the quotation marks) and press Enter.
+
+The ARCTool will unpack the .arc file to a folder named "bbs_rpg", a "bbs_rpg.arc.txt" file and a "log.txt" file.
+
+
+Image - Unpacking "bbs_rpg.arc" with ARCTool https://i.imgur.com/qQ5rOfS.jpeg
+
+    1.4 - Go to the "bbs_rpg" folder \sound\stream\bgm. Here you'll find the file "bgm.stq", which reads the game's background music files and checks their names, sizes and other attributes.
+
+The "bbs_rpg.arc" was unpacked and we found the .stq file (bgm.stq) we need to edit
+
+
+
+PART IV - Editing the .stq file in the Hex Editor
+
+
+(1) Open the "bgm.stq" file with "Hex Workshop Editor" (or another HEX editor you like to use).
+    This is how it should look like:
+
+Image - Open "bs_rpg.stq" with Hex Workshop Editor https://i.imgur.com/BZZG5gF.jpg
+
+Crazy, right? oO
+
+Each Hex code is made of 4 pairs of digits, for example "A1 B2 C3 D4". These digits could represent the file name, or the file size, or the file total samples, total bitrate, and so on...
+
+Dragon's Dogma .stq files have these Hex code informations for the respective .sngw audio files it will read.
+So, if we changed a default game audio file with a new audio file, we gotta edit the related .stq file adding the new audio file info.
+That's basically what this is all about.
+
+For a background audio file (.sngw), we must know which hex codes represent a few informations:
+
+    - Total file size
+    - Total samples
+    - Number of channels
+    - Loop start
+    - Loop end
+
+Note: There's a table with the background music Hex codes. It's useful if you're messing with many audio files and don't want to convert DEC to HEX every time: https://drive.google.com/file/d/12YMfE946rWr5KRm1wq2KOilqetzgJ9Dn/
+
+Take a look at the informations that each HEX code we're changing of the file "No_046.sngw" represent in the "bgm.stq" data file:
+
+Image - HEX code information of the audio “No_046.sgnw” file in the configuration data “bgm.stq” file https://i.imgur.com/crQ9xUP.jpg
+
+In this tutorial we'll check the informations of the audio file "No_046.sngw", which is the music that plays during the character editing.
+
+1.1 -     Right-click the "No_046.sngw" file and go to "Properties"
+        In the properties "General" tab, you'll find an information called "Size", given in bytes. This is the total file size.
+        Select the numbers of the total file size, copy, open a Notepad and paste this total file size decimal (DEC) number (here, this number is 8,052,810)
+        We'll convert and adjust this DEC number to a HEX number
+       
+Image - Total file size https://i.imgur.com/oTBgZkV.jpg
+
+1.2 -     Open "Calculator" and on it's menu, select the "Programmer" function (Note: you can use an online calculator with a programmer function, if you don't have a calculator like this installed.)
+        Select the DEC tab on the calculator, because it'll be a decimal number that you'll paste
+        Paste the total file size number (8,052,810) on the calculator
+        It'll be converted to a HEX number, as shown in the HEX tab (7AE04A)
+        Right-click and Copy this HEX number
+       
+Image - Converting DEC to HEX in the Calculator https://i.imgur.com/X3VHLL7.jpg
+
+The Calculator will give you the HEX code as a 3 or 4 pairs of digits.
+In this case, it gave us the HEX code: 7A E0 4A, which has 3 pairs of digits. This HEX code represents the DEC number 8,052,810.
+Now, there's a tricky part. For the HEX Editor to interpret this HEX number, we'll need to change it a little bit.
+
+We need to invert the order of these pairs of digits.
+We have 3 pairs of digits:    7A E0 4A
+We'll invert their order to:    4A E0 7A
+
+Then, we'll add two zeroes "00" to the end of this code: 4A E0 7A 00
+
+Now the HEX code has 4 pairs of digits and we can use this code on the Hex Editor
+
+
+Image - Inverted HEX code https://i.imgur.com/bTrqwEH.jpg
+
+
+
+1.3 -     Go to "Hex Workshop Editor", press "Ctrl+F" to open the "Find" function
+        Paste the inverted HEX code, with 4 pairs of digits, without spaces (4AE07A00), to search for it in the editor
+
+You'll notice on the HEX Workshop's right tab, called "Data Inspector", on the "int32" data, that this inverted HEX code (4AE07A00) you searched for represents the exact total file size in DEC number (8,052,810) that you saw on the "No_046.sngw" file properties.
+
+Image - Search for the inverted HEX code in the HEX Editor https://i.imgur.com/LC3sf0Q.jpg
+
+This inverted HEX code represents the total file size of the original music file.
+We'll change this code to the inverted HEX code of your new music file
+In "Part II" we transformed the "Jingle Punks - Into the Wormhole" music into the "No_046.ogg" music file. We'll grab the HEX codes we need from this file now.
+
+1.4 -     Let's get the "No_046.ogg" total file size
+        Right-click the "No_046.ogg" file and go to "Properties"
+        Copy the total file size DEC number (here it is shown as 3,621,564)
+        Convert this DEC number in the programmer calculator to get the HEX number (3742BC)
+        Invert the HEX number, adding a pair of "0" if needed (BC423700)
+
+Now you have the total file size, in HEX code (BC423700)
+
+
+Image - Total file size of "No_046.ogg" https://i.imgur.com/JEfTUZL.jpg
+
+        In the Hex Editor, substitute the old file size HEX code (4AE07A00) for the new HEX code (BC423700)
+       
+When you select the new HEX code in the editor, you'll notice the changed values on the "int32" data to its respective file size (3,621,564)
+
+Image - Total file size in DEC and HEX https://i.imgur.com/L1ZH6ky.jpg
+
+1.5 -﻿Let's get the "No_046.ogg" total samples
+        ﻿With the "No_046.ogg" file open in Audacity, down below the window you'll see a time bar
+       ﻿ Click on this time bar arrow menu and select "samples"
+       ﻿ Left-click anywhere in the wave sounds of the track and press "End". It'll take you to the very end of the track and you'll get the total samples in the sample bar (here it shows 3,621,967)
+
+
+Image - Total samples of a song in Audacity
+
+
+        ﻿Go to the "Calculator" with the programmer function activated, select the DEC tab and type the total samples number 3,621,967
+       ﻿ Now copy the HEX code it converted (37444F) and invert it, adding a pair of "0" (4F443700), like you did before
+
+Now you have the total samples, in HEX code (4F443700)
+
+
+Image - Total samples of "No_046.ogg" https://i.imgur.com/PqEKVGu.jpg
+
+        In the Hex Editor, substitute the old total samples HEX code (37444F00) for the new HEX code (4F443700)
+       
+Image - Total samples of "No_046.ogg" https://i.imgur.com/kM9iY4N.jpg
+
+1.6 -     The next 4 pairs of digits in the HEX editor represent the number of channels for the audio file. For the original "No_046.sngw" file, the HEX code is "06 00 00 00", meaning it has 6 channels.
+        Change the first two digits, "06", to "02" to change the number of channels to 2, because your music file is Stereo with 2 channels.
+        So, the HEX code for the channels will be 02 00 00 00.
+       
+Image - Number of channels Stereo https://i.imgur.com/WLVOhWO.jpg
+
+1.7 -     The next 4 pairs of digits in the HEX editor represent the sample number of the timeline where the audio loop will start. For the original "No_046.sngw" file, the HEX code is "76A30300", and the sample number is "238454" and this is the point on the audio timeline where the song loop will begin.
+        If you want your music to loop from the very begining, change the HEX code to "01 00 00 00".
+        If you don't want your music to loop, change the HEX code to "FF FF FF FF".
+       
+Image - Loop start https://i.imgur.com/mNu4Ov5.jpg
+
+1.8 -     The last 4 pais of digits we'll change, represent the loop end of the audio file.
+        If you want your music to loop at the end, change the HEX code to your music total sample HEX number "4F 44 37 00".
+        If you don't want your music to loop, change the HEX code to "FF FF FF FF".
+
+Image - Loop end https://i.imgur.com/4MuB6eS.jpg
+
+So, we changed the "bgm.stq" file HEX codes and they are now related to your music file (in this case, Jinge Punks music)
+
+
+
+PART V
+
+
+We're almost done. Now we'll repack the .arc file with the modified "bgm.stq" file we edited previously.
+
+(1) Open the Command Prompt in the "ARCTool" folder, like we did in PART III, step 1.2.
+    Type "bbs_rpg" (without quotations) and press "Enter"
+    ARCtool will repack everything into a new "bbs_rpg.arc" file
+    
+
+Image - Repacking the .arc file https://i.imgur.com/pTfaTCb.jpeg
+    
+1.1 -     Copy the new repacked "bbs_rpg.arc" file
+        Go to your game installation folder \nativePC\rom
+        Paste the new "bbs_rpg.arc" file and overwrite if asked to
+       
+
+Image - New bbs_rpg.arc file Overwrite https://i.imgur.com/ruw9Xpe.jpg       
+
+(2)    Select the music file "No_046.ogg" we prepared in PART I
+    Rename "No_046.ogg" to "No_046.sngw" and copy this renamed "No_046.sngw" file
+    Go to \nativePC\sound\stream\bgm\wave
+    Paste "No_046.sngw" here and overwrite if asked to
+    
+
+Image - New No_046.sgnw file Overwrite https://i.imgur.com/q3sAm3l.jpg   
+    
+Now your game has a new music file for the Character Editor screen and a new repacked .arc file with the edited .stq file which will read the music correctly.
+
+That's it :) Launch the game and see if it worked.
+
+
+
+DISCLAIMER
+
+
+I do not take any responsibility if anything goes wrong for you when trying to follow this tutorial. As mentioned above, always backup your files before trying a new mod or changing your game files.
+
+If this tutorial didn't work for you, check Infernus Animositas's guide (link below)
+
+
+
+CREDITS AND THANKS
+
+
+For the guide    : Infernus Animositas https://www.reddit.com/user/Infernus_Animositas/
+You can check his guide, which has more details, here: https://pastebin.com/raw/hTBxweH8
+For ARCTool        : FluffyQuack https://www.fluffyquack.com/
+For Hex Workshop: BreakPoint Software http://www.hexworkshop.com/
+For Audacity    : Audacity Team https://www.audacityteam.org/
+
+
+MOD BY highmacleod https://www.nexusmods.com/users/13322980
+
+Good Game! :    )
