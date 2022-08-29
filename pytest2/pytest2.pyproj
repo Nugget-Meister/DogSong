@@ -27,6 +27,7 @@
     <Compile Include="module2.py" />
     <Compile Include="main.py" />
     <Compile Include="module3.py" />
+    <Compile Include="module4.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.9" />
