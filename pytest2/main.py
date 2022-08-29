@@ -1,7 +1,8 @@
 
-import module2 as ddmod
-import module1 as screen
-import module3 as parse
+#import module2 as ddmod
+#import module1 as screen
+#import module3 as parse
+import module4 as hexcon
 import os
 
 
