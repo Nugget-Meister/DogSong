@@ -2,7 +2,7 @@ import tkinter as tk
 from mutagen import *
 import os
 
-
+# The song converter, also loads song information/metadata
 
 # By making the values in a class I can instantiate songs with values.
 
