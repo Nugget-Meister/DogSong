@@ -2,7 +2,13 @@
 
 #### The hex converter
 
+def convertHex(value):
+    nug = hex(value)
 
-nug = hex(454492)
+    buffer = nug.split('0x')
+    nug = buffer[1]
 
-print(nug)
+    print(nug)
+    print(len(nug))
+
+convertHex(28454492)
