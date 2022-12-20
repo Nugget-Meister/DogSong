@@ -14,6 +14,9 @@ from typing import Counter, Text
 import module2 as debug
 from module3 import loadSongList
 
+### Module for building the interface to interact with
+
+
 #Set width for widgets that require it
 widgetWidth = 30
 
