@@ -12,8 +12,9 @@ def convertHex(value):
     print(len(nug))
 
 def loadSongList():
+    #songFile = open('bgm.stq', 'rb')
     songFile = open('bgm.stq', 'rb')
-    
+
     fileBuffer = songFile.read()
 
     songFile.close()
@@ -24,9 +25,20 @@ def loadSongList():
     #print(fileBuffer)
     #print(gameSong)
 
-    test = "S"
-    test = bin.hexlify(fileBuffer)
-    print(test)
+    #test = fileBuffer
+    test =  [str(bin.hexlify(fileBuffer))]
+
+    #Create beginning of chunker into usable format
+    testB = list()
+    chunkSize = 8
+    
+
+    for i in range(2, len(test[0])-1, chunkSize):
+        testB.append(test[0][i:i+chunkSize])
+
+    print(testB)
+    #print(test)
+   # print(len(test[0]))
     
 
 
